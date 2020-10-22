@@ -1,4 +1,4 @@
-module gojson
+module github.com/hzw456/gojson
 
 go 1.14
 
