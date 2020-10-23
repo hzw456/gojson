@@ -344,8 +344,9 @@ func generateTypes(obj map[string]interface{}, structName string, tags []string,
 		for _, t := range tags {
 			if t == "ddb" {
 				tagList = append(tagList, fmt.Sprintf("%s:\"%s\"", t, casee.ToSnakeCase(key)))
+			} else {
+				tagList = append(tagList, fmt.Sprintf("%s:\"%s\"", t, key))
 			}
-			tagList = append(tagList, fmt.Sprintf("%s:\"%s\"", t, key))
 		}
 
 		structure += fmt.Sprintf("\n%s %s `%s`",
