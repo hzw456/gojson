@@ -109,6 +109,7 @@ import (
 	"strings"
 	"unicode"
 
+	"github.com/pinzolo/casee"
 	"gopkg.in/yaml.v2"
 )
 
@@ -341,6 +342,9 @@ func generateTypes(obj map[string]interface{}, structName string, tags []string,
 
 		tagList := make([]string, 0)
 		for _, t := range tags {
+			if t == "ddb" {
+				tagList = append(tagList, fmt.Sprintf("%s:\"%s\"", t, casee.ToSnakeCase(key)))
+			}
 			tagList = append(tagList, fmt.Sprintf("%s:\"%s\"", t, key))
 		}
 
